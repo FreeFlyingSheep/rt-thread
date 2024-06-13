@@ -13,6 +13,16 @@
 
 #include <rtconfig.h>
 
+#ifdef SOC_LA464
+#define TO_PHYS_MASK  0x1fffffffffffffff
+#define CACHE_BASE    0x8000000000000000
+#define UNCACHE_BASE  0x9000000000000000
+
+#define TO_PHYS(x)    ((x) & TO_PHYS_MASK)
+#define TO_CACHE(x)   (CACHE_BASE | ((x) & TO_PHYS_MASK))
+#define TO_UNCACHE(x) (UNCACHE_BASE | ((x) & TO_PHYS_MASK))
+#endif
+
 #ifndef TO_PHYS
 #define TO_PHYS(x) (x)
 #endif
