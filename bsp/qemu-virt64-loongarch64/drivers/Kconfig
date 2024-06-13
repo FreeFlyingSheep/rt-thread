@@ -1,0 +1,18 @@
+menu "Hardware Drivers Config"
+
+    menuconfig BSP_USING_UART
+        bool "Using UART"
+        select RT_USING_SERIAL
+        default y
+
+        if BSP_USING_UART
+            config BSP_USING_UART0
+                bool "Using UART0"
+                default y
+
+            config BSP_USING_UART1
+                bool "Using UART1"
+                default n
+        endif
+
+endmenu
