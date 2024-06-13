@@ -16,12 +16,6 @@
     .section ".startup", "ax"
     .globl _start
 _start:
-    /* config direct window */
-    li.w    $t0, 0x80000001
-    csrwr   $t0, LOONGARCH_CSR_DMWIN0
-    li.w    $t0, 0xa0000011
-    csrwr   $t0, LOONGARCH_CSR_DMWIN1
-
     /* jump to link address */
     la.abs  $t0, 1f
     jr      $t0
