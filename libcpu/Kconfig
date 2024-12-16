@@ -307,3 +307,15 @@ config ARCH_USING_HW_THREAD_SELF
 config ARCH_USING_IRQ_CTX_LIST
     bool
     default n
+
+config ARCH_LOONGARCH
+    bool
+
+config ARCH_LOONGARCH32
+    bool
+    select ARCH_LOONGARCH
+
+config ARCH_LOONGARCH64
+    bool
+    select ARCH_LOONGARCH
+    select ARCH_CPU_64BIT
